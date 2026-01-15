@@ -10,7 +10,6 @@
   <style>
     /* ================= DEFAULT STYLES (Desktop) ================= */
     
-    /* UPDATED: College Title Header Style - Now Flexbox for PC & Mobile */
     .college-header-title {
         width: 100%;
         background: rgba(0, 0, 0, 0.6);
@@ -94,12 +93,23 @@
         border: 1px solid hsla(187, 100%, 50%, 0.2);
     }
     
-    .team-scroll-track {
-        display: flex;
-        gap: 4rem;
-        width: max-content;
-        animation: scroll 50s linear infinite;
+   .team-scroll-track {
+    display: flex;
+    gap: 4rem;
+    width: max-content;
+    animation: scroll 60s linear infinite;
+    padding-right: 150px; 
+}
+
+@media (max-width: 768px) {
+    .team-member-card {
+        width: 130px;
     }
+    .team-scroll-track {
+        gap: 2rem; 
+        animation: scroll 40s linear infinite; 
+    }
+}
     
     .team-member-card {
         display: flex;
@@ -1393,6 +1403,7 @@ The organizing team will provide hardware components worth up to <strong>₹3,00
   </script>
 </body>
 </html>
+
 
 
 
