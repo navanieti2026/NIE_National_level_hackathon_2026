@@ -750,249 +750,95 @@
     <div class="tech-grid-bg"></div>
     <div class="tracks-bg"></div>
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Hackathon <span class="neon-text-purple">Tracks</span></h2>
-        <p class="section-subtitle">Develop hardware and embedded solutions across emerging technology domains.</p>
-        <div class="section-divider purple"></div>
-      </div>
-      <div class="tracks-grid">
-        
-        <div class="track-card" onclick="toggleTrack(this)">
-          <div class="track-glow"></div>
-          <div class="track-content">
-            <div class="track-animated-border"></div>
-            <div class="track-inner">
-              <div class="track-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                </svg>
-              </div>
-              <h3>Health Sector</h3>
-              <div class="track-click-prompt">
-                  <span>View Problem Statements</span>
-                  <div class="track-arrow-anim">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                          <polyline points="6 9 12 15 18 9"></polyline>
-                      </svg>
-                  </div>
-              </div>
-              
-              <div class="track-problems-list">
-                  <h4 style="color:#00d4ff; margin-bottom:0.5rem;">Problem Statements:</h4>
-                  <ul>
-                    <li>1.	Non-Contact Nurse-Call System:
-                        <ul>In infectious disease wards, patients shouldn't touch physical buttons to call for help. Build a gesture-based system that triggers different colored lights at the nurse's station.</ul>
-                      </li>
-                      <li>2.	Post-Surgery Drip Rate Monitor:
-                        <ul>If an IV drip is too fast or slow, it can be dangerous. Build a device to count drops per minute and sound a buzzer if the rate falls out of a safe range.</ul>
-                      </li>
-                      <li>3.	Smart Walking Stick for the Visually Impaired:
-                        <ul>Visually impaired students at the university need help navigating new construction zones. A stick/device that provides different vibration patterns based on the distance of the obstacle.</ul>
-                      </li>
-                      <li>4.	Portable Heart-Rate Pulse Visualizer:
-                        <ul>Rural health workers need a simple way to verify a pulse during triage. Build a device which could act as Pulse oximeter and signal if the oxygen level or heart rate is below or above the normal range using lights and buzzers.</ul>
-                      </li>
-                      <li>5.  Wearable Health Monitor IC:
-                        <ul>Design a chip that measures heart rate and temperature and generates alerts if abnormal conditions occur.</ul>
-                      </li>
-                      <li>6.  ECG Signal Processing Accelerator:
-                        <ul>Design a digital block that filters ECG data and detects abnormal heartbeats.</ul>
-                      </li>
-                      <li>7.  Medical Image Edge-Detection Accelerator:
-                        <ul>Design a hardware module that highlights edges in medical images (useful for tumor detection).</ul>
-                      </li>
-                      <li>8.  Hospital Patient Alert Controller:
-                        <ul>Design a chip that collects vital signs from multiple patients and raises priority-based alerts.</ul>
-                      </li>
-                      <li>9.  Smart Medicine Dispenser Controller:
-                        <ul>Design a chip that releases medicine at correct times and raises an alert if a dose is missed.</ul>
-                      </li>
-                  </ul>
-              </div>
-            </div>
-          </div>
+        <div class="section-header">
+            <h2 class="section-title">Hackathon <span class="neon-text-purple">Tracks</span></h2>
+            <p class="section-subtitle">Develop hardware and embedded solutions across emerging technology domains.</p>
+            <div class="section-divider purple"></div>
         </div>
 
-        <div class="track-card" onclick="toggleTrack(this)">
-          <div class="track-glow"></div>
-          <div class="track-content">
-            <div class="track-animated-border"></div>
-            <div class="track-inner">
-              <div class="track-icon purple">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <a href="./NavaNIEti_PS.xlsx" download class="btn btn-neon" style="padding: 1rem 2rem; display: inline-flex; align-items: center; gap: 0.8rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
                 </svg>
-              </div>
-              <h3>Defence</h3>
-              <div class="track-click-prompt">
-                  <span>View Problem Statements</span>
-                  <div class="track-arrow-anim">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                          <polyline points="6 9 12 15 18 9"></polyline>
-                      </svg>
-                  </div>
-              </div>
-
-              <div class="track-problems-list">
-                  <h4 style="color:#00d4ff; margin-bottom:0.5rem;">Problem Statements:</h4>
-                  <ul>
-                      <li>1.	Laser-Grid Intrusion Detection System:
-                        <ul>A remote military outpost needs a silent alarm system that detects intruders without using cameras that can be hacked. Build a laser-based grid. When the beam is broken, a central hub must display the specific sector of intrusion.</ul>
-                      </li>
-                      <li>2.	Encrypted Morse Communicator:
-                        <ul>In a signal-jammed area, soldiers need to send basic "Yes/No" or "SOS" signals via light pulses that are encrypted to prevent enemy interception. Create a transmitter-receiver pair where the input is a button (Morse) and the output is a secure LED which could be used for communication.</ul>                        
-                      </li>
-                      <li>3.	Smart Noise-Level Sentinel:
-                        <ul>Stealth is key. A unit needs a device that alerts them via a vibrating motor if their own noise levels exceed a safe threshold. Build a system to trigger the alerts.</ul>
-                      </li>
-                      <li>4.	Automatic Terrain-Adapting Lighting:
-                        <ul>Tactical vehicles need lights that dim automatically when approaching a "light-sensitive" zone to avoid detection. Build a device which adjust Light brightness based on proximity to obstacles and ambient light.</ul>
-                      </li>
-                      <li>5.  Smart Border Intrusion Detection Chip:
-                      <ul>Design a digital chip that takes inputs from motion, vibration, and sound sensors and raises an intrusion alert when abnormal activity is detected.</ul>
-                      </li>
-                      <li>6.  Secure Military Communication Encoder:
-                        <ul>Design a hardware encryption block that encrypts outgoing data before transmission and decrypts incoming data.</ul>
-                      </li>
-                      <li>7.  Radar Pulse Processing Accelerator:
-                        <ul>Design a digital block that processes radar pulse samples and detects the presence of an object using thresholding and filtering.</ul>
-                      </li>
-                      <li>8.  Soldier Health Monitoring Chip:
-                        <ul>Design a chip that monitors heart rate and body temperature of a soldier and generates alerts when values go out of range.</ul>
-                      </li>
-                      <li>9.  Weapon System Safety Controller:
-                        <ul>Design a fail-safe controller that enables weapon firing only when all safety conditions are satisfied.</ul>
-                      </li>
-                  </ul>
-              </div>
-            </div>
-          </div>
+                Download Detailed Problem Statements (XL/PDF)
+            </a>
         </div>
 
-        <div class="track-card" onclick="toggleTrack(this)">
-          <div class="track-glow"></div>
-          <div class="track-content">
-            <div class="track-animated-border"></div>
-            <div class="track-inner">
-              <div class="track-icon green">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
-                  <path d="M12 6v12"></path>
-                  <path d="M6 12h12"></path>
-                  <path d="M7 9l2-2"></path>
-                  <path d="M15 17l2-2"></path>
-                  <path d="M17 9l-2-2"></path>
-                  <path d="M9 17l-2-2"></path>
-                </svg>
-              </div>
-              <h3>Sustainability & Agriculture</h3>
-              <div class="track-click-prompt">
-                  <span>View Problem Statements</span>
-                  <div class="track-arrow-anim">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                          <polyline points="6 9 12 15 18 9"></polyline>
-                      </svg>
-                  </div>
-              </div>
-
-              <div class="track-problems-list">
-                  <h4 style="color:#00d4ff; margin-bottom:0.5rem;">Problem Statements:</h4>
-                  <ul>
-                      <li>1.	Smart Sluice Gate for Canal Irrigation:
-                        <ul>Farmers in rural Mysore often waste water by leaving canal gates open too long. Build a system that detects soil moisture and automatically opens/closes a water gate.</ul>
-                      </li>
-                      <li>2.	Solar-Track Harvesting Helper:
-                        <ul>Small-scale solar dryers for coffee beans are inefficient because they don't follow the sun. Build a dual-axis tracker to maximize light intensity on a panel.</ul>
-                      </li>
-                      <li>3.	Automated Seed Counter and Sorter:
-                        <ul>Sorting healthy seeds from debris manually is time-consuming for small farmers. Create a conveyor-belt system that counts seeds as they pass the device and displays the count.</ul>
-                      </li>
-                      <li>4.	Pest-Repellent Frequency Generator:
-                        <ul>Rodents are destroying stored grain, but chemical pesticides are harmful to the environment. Build an ultrasonic frequency generator that varies its pitch to prevent pests from getting used to the sound.</ul>
-                      </li>
-                      <li>5.  Smart Irrigation Controller IC:
-                        <ul>Design a chip that automatically turns a water pump ON/OFF based on soil moisture and temperature inputs.</ul>
-                      </li>
-                      <li>6.  Crop Disease Detection Accelerator:
-                        <ul>Design a simple CNN / MAC-based hardware block that classifies crop data as healthy or diseased.</ul>
-                      </li>
-                      <li>7.  Precision Fertilizer Controller:
-                        <ul>Design a chip that decides how much fertilizer to release based on soil nutrients and moisture.</ul>
-                      </li>
-                      <li>8.  Solar-Powered Farm Sensor SoC:
-                        <ul>Design a low-power SoC controller that works in sleep mode and wakes up to collect farm data using solar power.</ul>
-                      </li>
-                      <li>9.  Grain Storage Monitoring Chip:
-                        <ul>Design a chip that monitors temperature and humidity inside grain storage and raises spoilage alerts.</ul>
-                      </li>
-                  </ul>
-              </div>
+        <div class="tracks-grid">
+            <div class="track-card">
+                <div class="track-glow"></div>
+                <div class="track-content">
+                    <div class="track-animated-border"></div>
+                    <div class="track-inner">
+                        <div class="track-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            </svg>
+                        </div>
+                        <h3>Health Sector</h3>
+                        <p style="color: #9ca3af; font-size: 0.9rem;">Focusing on non-contact monitoring, surgical aids, and smart assistive devices.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <div class="track-card" onclick="toggleTrack(this)">
-          <div class="track-glow"></div>
-          <div class="track-content">
-            <div class="track-animated-border"></div>
-            <div class="track-inner">
-              <div class="track-icon" style="color: #ff5722;">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-                  <line x1="12" y1="9" x2="12" y2="13"></line>
-                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                </svg>
-              </div>
-              <h3>Disaster Management</h3>
-              <div class="track-click-prompt">
-                  <span>View Problem Statements</span>
-                  <div class="track-arrow-anim">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                          <polyline points="6 9 12 15 18 9"></polyline>
-                      </svg>
-                  </div>
-              </div>
-
-              <div class="track-problems-list">
-                  <h4 style="color:#00d4ff; margin-bottom:0.5rem;">Problem Statements:</h4>
-                  <ul>
-                      <li>1.	Early Flood Warning Siren:
-                        <ul>Low-lying areas near the Kaveri River need an automated siren that triggers as water levels rise. Build a device that triggers different alarm tones based on severity.</ul>
-                      </li>
-                      <li>2.	Gas Leakage "Search" Robot:
-                        <ul>After a factory fire, it is too dangerous for humans to check for LPG/CO leaks. Build a small wired/wireless rover that could get into the site and detect the leaks.</ul>
-                      </li>
-                      <li>3.	Earthquake Vibration Logger:
-                        <ul>Structural engineers need to know if a building has suffered micro-fractures after a tremor. Build a device that signals if a vibration above a certain Magnitude is detected through the buzzers/voice alerts/lights.</ul>
-                      </li>
-                      <li>4.	Emergency Beacon with Morse "SOS":
-                        <ul>Hikers trapped in a landslide need a way to signal helicopters at night. A high-intensity LED beacon that automatically flashes the Morse code for “SOS” or any emergency codes.</ul>
-                      </li>
-                      <li>5.  Earthquake Detection Chip:
-                        <ul>Design a chip that analyzes vibration sensor data and generates early-warning signals.</ul>
-                      </li>
-                      <li>6.  Flood Level Monitoring Controller:
-                        <ul>Design a chip that monitors water levels and predicts flood risk.</ul>
-                      </li>
-                      <li>7.  Fire Detection and Alert IC:
-                        <ul>Design a chip that detects smoke and temperature rise and triggers alarms.</ul>
-                      </li>
-                      <li>8.  Landslide Warning Chip:
-                        <ul>Design a chip that monitors soil movement and rainfall data to detect landslide risk.</ul>
-                      </li>
-                      <li>9.  Rescue Drone Navigation Controller:
-                        <ul>Design a chip that processes distance and direction data to help a rescue drone avoid obstacles.</ul>
-                      </li>
-                  </ul>
-              </div>
+            <div class="track-card">
+                <div class="track-glow"></div>
+                <div class="track-content">
+                    <div class="track-animated-border"></div>
+                    <div class="track-inner">
+                        <div class="track-icon purple">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h3>Defence</h3>
+                        <p style="color: #9ca3af; font-size: 0.9rem;">Innovations in intrusion detection, secure communication, and tactical hardware.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-      </div>
+            <div class="track-card">
+                <div class="track-glow"></div>
+                <div class="track-content">
+                    <div class="track-animated-border"></div>
+                    <div class="track-inner">
+                        <div class="track-icon green">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                                <path d="M12 6v12"></path>
+                                <path d="M6 12h12"></path>
+                            </svg>
+                        </div>
+                        <h3>Sustainability & Agriculture</h3>
+                        <p style="color: #9ca3af; font-size: 0.9rem;">Smart irrigation, solar tracking, and automated pest management systems.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="track-card">
+                <div class="track-glow"></div>
+                <div class="track-content">
+                    <div class="track-animated-border"></div>
+                    <div class="track-inner">
+                        <div class="track-icon" style="color: #ff5722;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                <line x1="12" y1="9" x2="12" y2="13"></line>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                        </div>
+                        <h3>Disaster Management</h3>
+                        <p style="color: #9ca3af; font-size: 0.9rem;">Early warning systems, search & rescue rovers, and emergency beacons.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-  </section>
-
+</section>
   <section id="schedule" class="schedule-section section-animate">
     <div class="schedule-bg"></div>
     <div class="container">
@@ -1188,7 +1034,7 @@
           </div>
           
           <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
-              <button class="btn btn-neon btn-xl" onclick="window.open('https://unstop.com/o/VRSQFXo?lb=7WGKQpqG&utm_medium=Share&utm_source=nikits58056&utm_campaign=Online_coding_challenge')">
+              <button class="btn btn-neon btn-xl" onclick="window.open('https://unstop')">
                 Register Now
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
