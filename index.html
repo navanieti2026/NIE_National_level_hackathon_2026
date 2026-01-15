@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NavaNIEti - National Level Hackathon 2026</title>
+  <meta name="description" content="NavaNIEti is a 24-hour national level hackathon bringing together innovators from across India.">
+  <link rel="stylesheet" href="./css/style.css">
+  
+  <style>
+    /* ================= DEFAULT STYLES (Desktop) ================= */
+    
+    /* UPDATED: College Title Header Style - Now Flexbox for PC & Mobile */
+    .college-header-title {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 700;
+        /* Removed fixed font size to allow children to control size */
+        padding: 0.5rem 2rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+        text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        z-index: 20;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    /* NEW STYLES FOR HEADER TEXT BLOCK */
+    .header-text-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-grow: 1;
+        padding: 0 1rem;
+    }
+
+    .header-main-title {
+        font-size: 1.2rem;
+        margin: 0;
+        color: #fff;
+        line-height: 1.2;
+    }
+
+    .header-sub-details {
+        font-size: 0.65rem;
+        font-family: sans-serif; /* Readable font for small details */
+        color: #ccc;
+        text-transform: none;
+        letter-spacing: 0.5px;
+        margin: 4px 0;
+        line-height: 1.3;
+        font-weight: normal;
+        text-shadow: none;
+    }
+
+    .header-dept-title {
+        font-size: 0.9rem;
+        color: #00d4ff;
+        margin-top: 2px;
+        line-height: 1.2;
+    }
+
+    /* Top Bar Logos */
+    .header-logo-top {
+        height: 70px; /* Slightly larger for balance */
+        width: auto;
+        object-fit: contain;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 4px;
+        padding: 2px;
+        filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
+    }
+    
+    .footer-brand-span {
+        grid-column: span 2;
+    }
+
+    /* Team Scroller Styles */
+    .team-scroll-container {
+        width: 100%;
+        overflow: hidden;
+        padding: 2rem 0;
+        background: rgba(0,0,0,0.2);
+        margin-bottom: 2rem;
+        border-radius: 1rem;
+        border: 1px solid hsla(187, 100%, 50%, 0.2);
+    }
+    
+    .team-scroll-track {
+        display: flex;
+        gap: 4rem;
+        width: max-content;
+        animation: scroll 50s linear infinite;
+    }
+    
+    .team-member-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 150px;
+        flex-shrink: 0;
+    }
+    
+    .team-member-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #00d4ff;
+        margin-bottom: 0.5rem;
+        background-color: #1a1a1a;
+    }
+    
+    .team-member-name {
+        color: #fff;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    /* ================= NOTABLE DATES SECTION STYLES ================= */
+    .dates-section {
+        position: relative;
+        padding: 4rem 0;
+        overflow: hidden;
+    }
+
+    .dates-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        max-width: 800px;
+        margin: 3rem auto 0;
+        padding: 0 1rem;
+    }
+
+    .date-card {
+        background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 1.5rem 2rem;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .date-card:hover {
+        transform: translateY(-5px);
+        border-color: #fbbf24; /* Yellow to match image accent */
+        box-shadow: 0 10px 30px rgba(251, 191, 36, 0.15);
+        background: rgba(255,255,255,0.08);
+    }
+
+    .date-icon-box {
+        background: rgba(251, 191, 36, 0.1);
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        border: 1px solid rgba(251, 191, 36, 0.3);
+        position: relative;
+    }
+    
+    .date-icon-box::after {
+        content: '';
+        position: absolute;
+        top: -5px; right: -5px;
+        width: 20px; height: 20px;
+        background: #fbbf24;
+        border-radius: 50%;
+        opacity: 0.5;
+        filter: blur(10px);
+    }
+
+    .date-content {
+        flex-grow: 1;
+        text-align: left;
+    }
+
+    .date-heading {
+        font-family: 'Orbitron', sans-serif;
+        color: #fbbf24; /* Yellow */
+        font-size: 1.2rem;
+        margin: 0 0 0.5rem 0;
+        letter-spacing: 1px;
+    }
+
+    .date-desc {
+        color: #e5e7eb;
+        font-size: 1rem;
+        margin: 0;
+        line-height: 1.5;
+    }
+    
+    .important-badge {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        background: rgba(251, 191, 36, 0.2);
+        color: #fbbf24;
+        font-size: 0.6rem;
+        padding: 2px 8px;
+        border-radius: 10px;
+        border: 1px solid rgba(251, 191, 36, 0.5);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* NEW STYLES FOR PRIZE POOL */
+    .total-pool-card {
+        background: rgba(10, 10, 15, 0.8);
+        border: 2px solid #fbbf24;
+        border-radius: 20px;
+        padding: 3rem;
+        text-align: center;
+        max-width: 700px;
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+        box-shadow: 0 0 40px rgba(251, 191, 36, 0.2);
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+    }
+    
+    .total-pool-label {
+        color: #fbbf24;
+        font-family: 'Orbitron', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .total-pool-amount {
+        font-size: 5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #fbbf24 0%, #fff 50%, #d97706 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 0;
+        font-family: 'Orbitron', sans-serif;
+        line-height: 1.2;
+    }
+    
+    .total-pool-sub {
+        color: #9ca3af;
+        margin-top: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .cert-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(0, 212, 255, 0.3);
+        border-radius: 15px;
+        padding: 1.5rem 3rem;
+        text-align: center;
+        max-width: 400px;
+        margin: 2rem auto 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        box-shadow: 0 0 15px rgba(0, 212, 255, 0.1);
+    }
+
+    .contact-subheading {
+        color: #00d4ff;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.1rem;
+        margin-top: 0rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+        display: inline-block;
+        padding-bottom: 0.2rem;
+    }
+
+    .coordinator-box {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+    }
+
+    .coordinator-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #fff;
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+    }
+
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); } 
+    }
+
+    
+
+    /* ================= TRACKS EXPANSION STYLES ================= */
+    .track-card {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        height: auto; /* Allow growth */
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Updated Prompt Arrow Animation */
+    .track-click-prompt {
+        margin-top: 1rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #00d4ff;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.9rem;
+    }
+
+    .track-arrow-anim {
+        margin-top: 5px;
+        animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+        40% {transform: translateY(-5px);}
+        60% {transform: translateY(-3px);}
+    }
+
+    .track-problems-list {
+        display: none;
+        margin-top: 1.5rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 1rem;
+        text-align: left;
+        animation: fadeIn 0.5s ease;
+    }
+
+    .track-problems-list ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .track-problems-list li {
+        color: #d1d5db;
+        margin-bottom: 0.8rem;
+        font-size: 0.9rem;
+        padding-left: 1.2rem;
+        position: relative;
+    }
+
+    .track-problems-list li::before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        color: #00d4ff;
+    }
+
+    .track-card.active {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: #00d4ff;
+        transform: translateY(-5px);
+    }
+
+    .track-card.active .track-click-prompt {
+        display: none; /* Hide the prompt when open */
+    }
+
+    .track-card.active .track-problems-list {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+
+    /* ================= OVERLAP FIX FOR HERO SECTION ================= */
+    /* Shifts the hero section down so the logo/nav doesn't overlap content */
+    .hero-section {
+        padding-top: 160px !important; /* Increased for taller header */
+    }
+
+    /* ================= LAPTOP FIXES (Prevent Overlap) ================= */
+    @media (min-width: 769px) and (max-width: 1280px) {
+        .nav-links button {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.6rem;
+        }
+        .nav {
+            gap: 1rem;
+        }
+        .container {
+            padding: 0 1rem;
+        }
+    }
+
+    /* ================= MOBILE RESPONSIVENESS FIXES ================= */
+    @media (max-width: 768px) {
+        
+        /* HEADER TOP BAR LAYOUT */
+        .college-header-title {
+            padding: 0.5rem 0.2rem;
+            gap: 5px;
+        }
+        
+        /* Adjust text for mobile */
+        .header-main-title {
+            font-size: 0.75rem; 
+        }
+        
+        .header-sub-details {
+            display: none; /* Hide details on very small screens to save space, or reduce font size significantly */
+        }
+        
+        .header-dept-title {
+            font-size: 0.6rem;
+        }
+
+        /* Reduce Logo Size for Mobile */
+        .header-logo-top {
+            height: 40px;
+        }
+
+        .header .container {
+            padding: 0 1rem;
+        }
+        
+        .nav {
+            padding: 0.5rem 0;
+            align-items: center; 
+            justify-content: space-between !important;
+        }
+
+        .nav .nav-register {
+            display: none;
+        }
+
+        /* Hide text next to hackathon logo on mobile to save space */
+        .logo-text {
+            display: none !important;
+        }
+
+        .nav > div {
+            gap: 0.5rem !important;
+        }
+        
+        .total-pool-amount {
+            font-size: 3.5rem;
+        }
+        .total-pool-card {
+            padding: 2rem 1rem;
+        }
+
+        /* Hero Section Shift for Mobile */
+        .hero-section {
+            padding-top: 180px !important; /* More space for mobile stacked header */
+        }
+
+        /* FOOTER FIXES */
+        .footer-grid {
+            display: flex;
+            flex-direction: column; 
+            gap: 2rem;
+        }
+
+        .footer-brand-span {
+            grid-column: auto; 
+            width: 100%;
+        }
+
+        .footer-links-section, 
+        .footer-contact-section,
+        .footer-coordinators-section {
+            text-align: center; 
+        }
+
+        .footer-contact li, .coordinator-item {
+            justify-content: center;
+        }
+    }
+  </style>
+</head>
+<body>
+  <header id="header" class="header" style="height: auto; padding-top: 0;">
+    
+    <div class="college-header-title">
+        <img src="./images/nie.png" alt="College Logo" class="header-logo-top">
+        
+        <div class="header-text-container">
+            <h2 class="header-main-title">The National Institute of Engineering, Mysuru</h2>
+            <p class="header-sub-details">
+                (An Autonomous Institute under VTU, Belagavi)<br>
+                Recognized by AICTE, New Delhi | Accredited by NAAC, New Delhi
+            </p>
+            <div class="header-dept-title">Department of Electronics and Communication Engineering</div>
+            <p style="font-size: 0.7rem; margin: 0; color: #aaa;">Presents</p>
+        </div>
+        
+        <img src="./images/ece.jpg" alt="Dept Logo" class="header-logo-top">
+    </div>
+
+    <div class="container">
+      <nav class="nav" style="justify-content: space-between; padding-top: 1rem; padding-bottom: 1rem; align-items: center;">
+        
+        <div style="display: flex; align-items: center; gap: 1rem;">
+              <button onclick="scrollToSection('#home')" class="logo-btn">
+            
+            <span class="logo-text neon-text">NavaNIEti</span>
+            </button>
+            
+            <div class="nav-links">
+            <button onclick="scrollToSection('#home')" class="nav-link">Home</button>
+            <button onclick="scrollToSection('#sponsors')" class="nav-link">Sponsors</button>
+            <button onclick="scrollToSection('#about')" class="nav-link">About</button>
+            <button onclick="scrollToSection('#tracks')" class="nav-link">Tracks</button>
+            <button onclick="scrollToSection('#schedule')" class="nav-link">Schedule</button>
+            <button onclick="scrollToSection('#prizes')" class="nav-link">Prizes</button>
+            <button onclick="scrollToSection('#register')" class="nav-link">Register</button>
+            <button onclick="scrollToSection('#faqs')" class="nav-link">FAQs</button>
+            </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="nav-register">
+            <button onclick="scrollToSection('#register')" class="btn btn-neon">Register Now</button>
+            </div>
+            
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+            <svg class="menu-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <svg class="close-icon hidden" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            </button>
+        </div>
+      </nav>
+    </div>
+    
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="container">
+        <button onclick="scrollToSection('#home')" class="mobile-nav-link">Home</button>
+        <button onclick="scrollToSection('#sponsors')" class="mobile-nav-link">Sponsors</button>
+        <button onclick="scrollToSection('#about')" class="mobile-nav-link">About</button>
+        <button onclick="scrollToSection('#tracks')" class="mobile-nav-link">Tracks</button>
+        <button onclick="scrollToSection('#schedule')" class="mobile-nav-link">Schedule</button>
+        <button onclick="scrollToSection('#prizes')" class="mobile-nav-link">Prizes</button>
+        <button onclick="scrollToSection('#faqs')" class="mobile-nav-link">FAQs</button>
+        <button onclick="scrollToSection('#register')" class="btn btn-neon mobile-register-btn">Register Now</button>
+      </div>
+    </div>
+  </header>
+
+  <section id="home" class="hero-section">
+    <div class="hero-bg-gradient"></div>
+    <div class="hero-bg-radial"></div>
+    <canvas id="particle-canvas" class="particle-canvas"></canvas>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="hero-content container">
+      <div class="hero-inner">
+        <div class="hero-badge animate-fade-in">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="sparkles-icon">
+            <path d="M12 3l1.912 5.813a2 2 0 001.275 1.275L21 12l-5.813 1.912a2 2 0 00-1.275 1.275L12 21l-1.912-5.813a2 2 0 00-1.275-1.275L3 12l5.813-1.912a2 2 0 001.275-1.275L12 3z"></path>
+          </svg>
+          <span style="color: #fbbf24; font-weight: 800; text-shadow: 0 0 15px rgba(251, 191, 36, 0.8); text-transform: uppercase; letter-spacing: 1.5px; font-size: 1.1rem; font-family: 'Orbitron', sans-serif;">National Level Hackathon</span>
+        </div>
+        <h1 class="hero-title animate-fade-in delay-100">
+          <span class="neon-text">NavaNIEti</span>
+        </h1>
+        <p class="hero-tagline animate-fade-in delay-200">"Innovate Today, Shape Tomorrow"</p>
+        <div class="hero-details animate-fade-in delay-300">
+          <span class="detail-item">
+            <span class="detail-dot"></span>
+            March 4 – March 5, 2026
+          </span>
+          <span class="detail-separator">|</span>
+          <span>Department of Electronics and Communication</span>
+        </div>
+
+        <div class="animate-fade-in delay-300" style="margin-top: 1rem; margin-bottom: 0.5rem;">
+            <p style="font-size: 1.1rem; color: #fbbf24; font-weight: 700; text-shadow: 0 0 10px rgba(251, 191, 36, 0.5); font-family: 'Orbitron', sans-serif;">
+                📍 Venue: The National Institute of Engineering, Mysuru
+            </p>
+        </div>
+        
+        <div class="hero-cta animate-fade-in delay-400">
+          <button onclick="scrollToSection('#register')" class="btn btn-neon btn-lg">Register Now</button>
+          <button onclick="scrollToSection('#about')" class="btn btn-outline btn-lg">Learn More</button>
+        </div>
+        <div class="countdown-wrapper animate-fade-in delay-500">
+          <p class="countdown-label">HACKATHON STARTS IN</p>
+          <div class="countdown-timer" id="countdown">
+            <div class="countdown-unit">
+              <div class="countdown-glow"></div>
+              <div class="countdown-box"><span id="days" class="countdown-value">00</span></div>
+              <span class="countdown-unit-label">Days</span>
+            </div>
+            <span class="countdown-separator">:</span>
+            <div class="countdown-unit">
+              <div class="countdown-glow"></div>
+              <div class="countdown-box"><span id="hours" class="countdown-value">00</span></div>
+              <span class="countdown-unit-label">Hours</span>
+            </div>
+            <span class="countdown-separator">:</span>
+            <div class="countdown-unit">
+              <div class="countdown-glow"></div>
+              <div class="countdown-box"><span id="minutes" class="countdown-value">00</span></div>
+              <span class="countdown-unit-label">Minutes</span>
+            </div>
+            <span class="countdown-separator">:</span>
+            <div class="countdown-unit">
+              <div class="countdown-glow"></div>
+              <div class="countdown-box"><span id="seconds" class="countdown-value">00</span></div>
+              <span class="countdown-unit-label">Seconds</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button onclick="scrollToSection('#sponsors')" class="scroll-indicator" aria-label="Scroll down">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </section>
+
+  <section id="sponsors" class="sponsors-section section-animate">
+    <div class="tech-grid-bg opacity-30"></div>
+    <div class="sponsors-bg"></div>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our <span class="neon-text">Sponsors</span></h2>
+        <p class="section-subtitle">Powered by industry leaders who believe in nurturing innovation</p>
+        <div class="section-divider"></div>
+      </div>
+      
+      <div class="sponsor-tier">
+        <h3 class="tier-title">COMMUNITY PARTNERS</h3>
+        <div class="tier-logos community">
+          <div class="sponsor-card community">
+            <img src="https://via.placeholder.com/120x50/0a0a0f/6b7280?" alt="D">
+          </div>
+          <div class="sponsor-card community">
+            <img src="https://via.placeholder.com/120x50/0a0a0f/6b7280?" alt="C">
+          </div>
+          <div class="sponsor-card community">
+            <img src="https://via.placeholder.com/120x50/0a0a0f/6b7280?" alt="T">
+          </div>
+          <div class="sponsor-card community">
+            <img src="https://via.placeholder.com/120x50/0a0a0f/6b7280?" alt="H">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about-section section-animate">
+    <div class="about-bg"></div>
+    <div class="section-line"></div>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">About <span class="neon-text">NavaNIEti</span></h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p><span class="highlight">NavaNIEti</span> is a 24-hour national level hackathon that brings together innovative minds from across the country to solve real-world challenges through technology and creativity.</p>
+          <p>The hackathon features four focused tracks — <strong>Defence</strong>, <strong>Sustainability & Agriculture</strong>, <strong>Disaster Management</strong>, and <strong>Healthcare</strong> — encouraging participants to develop impactful solutions in critical sectors that shape the future.</p>
+          <p>Open to all students, NavaNIEti provides a collaborative environment to ideate, build, and present meaningful projects. Join us to innovate, compete, and create solutions that make a real difference.</p>
+        </div>
+        
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3>Open to All Branches</h3>
+            <p>Students from any engineering college, any branch, and any year can participate.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+            </div>
+            <h3>Real-World Problems</h3>
+            <p>Tackle industry-relevant challenges with innovative solutions</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="9" y1="18" x2="15" y2="18"></line>
+                <line x1="10" y1="22" x2="14" y2="22"></line>
+                <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"></path>
+              </svg>
+            </div>
+            <h3>Learn & Grow</h3>
+            <p>Gain amazing experience through hands-on development and unlock valuable networking opportunities.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+              </svg>
+            </div>
+            <h3>Launch Your Ideas</h3>
+            <p>Transform your concepts into working prototypes in 24 hours</p>
+          </div>
+        </div>
+      </div>
+      
+      </div>
+  </section>
+
+  <section id="tracks" class="tracks-section section-animate">
+    <div class="tech-grid-bg"></div>
+    <div class="tracks-bg"></div>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Hackathon <span class="neon-text-purple">Tracks</span></h2>
+        <p class="section-subtitle">Develop hardware and embedded solutions across emerging technology domains.</p>
+        <div class="section-divider purple"></div>
+      </div>
+      <div class="tracks-grid">
+        
+        <div class="track-card" onclick="toggleTrack(this)">
+          <div class="track-glow"></div>
+          <div class="track-content">
+            <div class="track-animated-border"></div>
+            <div class="track-inner">
+              <div class="track-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+              </div>
+              <h3>Health Sector</h3>
+              <div class="track-click-prompt">
+                  <span>View Problem Statements</span>
+                  <div class="track-arrow-anim">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                  </div>
+              </div>
+              
+              <div class="track-problems-list">
+                  <h4 style="color:#00d4ff; margin-bottom:0.5rem;">Problem Statements:</h4>
+                  <ul>
+                    <li>1.	Non-Contact Nurse-Call System:
+                        <ul>In infectious disease wards, patients shouldn't touch physical buttons to call for help. Build a gesture-based system that triggers different colored lights at the nurse's station.</ul>
+                      </li>
+                      <li>2.	Post-Surgery Drip Rate Monitor:
+                        <ul>If an IV drip is too fast or slow, it can be dangerous. Build a device to count drops per minute and sound a buzzer if the rate falls out of a safe range.</ul>
+                      </li>
+                      <li>3.	Smart Walking Stick for the Visually Impaired:
+                        <ul>Visually impaired students at the university need help navigating new construction zones. A stick/device that provides different vibration patterns based on the distance of the obstacle.</ul>
+                      </li>
+                      <li>4.	Portable Heart-Rate Pulse Visualizer:
+                        <ul>Rural health workers need a simple way to verify a pulse during triage. Build a device which could act as Pulse oximeter and signal if the oxygen level or heart rate is below or above the normal range using lights and buzzers.</ul>
+                      </li>
+                      <li>5.  Wearable Health Monitor IC:
+                        <ul>Design a chip that measures heart rate and temperature and generates alerts if abnormal conditions occur.</ul>
+                      </li>
+                      <li>6.  ECG Signal Processing Accelerator:
+                        <ul>Design a digital block that filters ECG data and detects abnormal heartbeats.</ul>
+                      </li>
+                      <li>7.  Medical Image Edge-Detection Accelerator:
+                        <ul>Design a hardware module that highlights edges in medical images (useful for tumor detection).</ul>
+                      </li>
+                      <li>8.  Hospital Patient Alert Controller:
+                        <ul>Design a chip that collects vital signs from multiple patients and raises priority-based alerts.</ul>
+                      </li>
+                      <li>9.  Smart Medicine Dispenser Controller:
+                        <ul>Design a chip that releases medicine at correct times and raises an alert if a dose is missed.</ul>
+                      </li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="track-card" onclick="toggleTrack(this)">
+          <div class="track-glow"></div>
+          <div class="track-content">
+            <div class="track-animated-border"></div>
+            <div class="track-inner">
+              <div class="track-icon purple">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <h3>Defence</h3>
+              <div class="track-click-prompt">
+                  <span>View Problem Statements</span>
+                  <div class="track-arrow-anim">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                  </div>
+              </div>
+
+              <div class="track-problems-list">
+                  <h4 style="color:#00d4ff; margin-bottom:0.5rem;">Problem Statements:</h4>
+                  <ul>
+                      <li>1.	Laser-Grid Intrusion Detection System:
+                        <ul>A remote military outpost needs a silent alarm system that detects intruders without using cameras that can be hacked. Build a laser-based grid. When the beam is broken, a central hub must display the specific sector of intrusion.</ul>
+                      </li>
+                      <li>2.	Encrypted Morse Communicator:
+                        <ul>In a signal-jammed area, soldiers need to send basic "Yes/No" or "SOS" signals via light pulses that are encrypted to prevent enemy interception. Create a transmitter-receiver pair where the input is a button (Morse) and the output is a secure LED which could be used for communication.</ul>                        
+                      </li>
+                      <li>3.	Smart Noise-Level Sentinel:
+                        <ul>Stealth is key. A unit needs a device that alerts them via a vibrating motor if their own noise levels exceed a safe threshold. Build a system to trigger the alerts.</ul>
+                      </li>
+                      <li>4.	Automatic Terrain-Adapting Lighting:
+                        <ul>Tactical vehicles need lights that dim automatically when approaching a "light-sensitive" zone to avoid detection. Build a device which adjust Light brightness based on proximity to obstacles and ambient light.</ul>
+                      </li>
+                      <li>5.  Smart Border Intrusion Detection Chip:
+                      <ul>Design a digital chip that takes inputs from motion, vibration, and sound sensors and raises an intrusion alert when abnormal activity is detected.</ul>
+                      </li>
+                      <li>6.  Secure Military Communication Encoder:
+                        <ul>Design a hardware encryption block that encrypts outgoing data before transmission and decrypts incoming data.</ul>
+                      </li>
+                      <li>7.  Radar Pulse Processing Accelerator:
+                        <ul>Design a digital block that processes radar pulse samples and detects the presence of an object using thresholding and filtering.</ul>
+                      </li>
+                      <li>8.  Soldier Health Monitoring Chip:
+                        <ul>Design a chip that monitors heart rate and body temperature of a soldier and generates alerts when values go out of range.</ul>
+                      </li>
+                      <li>9.  Weapon System Safety Controller:
+                        <ul>Design a fail-safe controller that enables weapon firing only when all safety conditions are satisfied.</ul>
+                      </li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="track-card" onclick="toggleTrack(this)">
+          <div class="track-glow"></div>
+          <div class="track-content">
+            <div class="track-animated-border"></div>
+            <div class="track-inner">
+              <div class="track-icon green">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                  <path d="M12 6v12"></path>
+                  <path d="M6 12h12"></path>
+                  <path d="M7 9l2-2"></path>
+                  <path d="M15 17l2-2"></path>
+                  <path d="M17 9l-2-2"></path>
+                  <path d="M9 17l-2-2"></path>
+                </svg>
+              </div>
+              <h3>Sustainability & Agriculture</h3>
+              <div class="track-click-prompt">
+                  <span>View Problem Statements</span>
+                  <div class="track-arrow-anim">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                  </div>
+              </div>
+
+              <div class="track-problems-list">
+                  <h4 style="color:#00d4ff; margin-bottom:0.5rem;">Problem Statements:</h4>
+                  <ul>
+                      <li>1.	Smart Sluice Gate for Canal Irrigation:
+                        <ul>Farmers in rural Mysore often waste water by leaving canal gates open too long. Build a system that detects soil moisture and automatically opens/closes a water gate.</ul>
+                      </li>
+                      <li>2.	Solar-Track Harvesting Helper:
+                        <ul>Small-scale solar dryers for coffee beans are inefficient because they don't follow the sun. Build a dual-axis tracker to maximize light intensity on a panel.</ul>
+                      </li>
+                      <li>3.	Automated Seed Counter and Sorter:
+                        <ul>Sorting healthy seeds from debris manually is time-consuming for small farmers. Create a conveyor-belt system that counts seeds as they pass the device and displays the count.</ul>
+                      </li>
+                      <li>4.	Pest-Repellent Frequency Generator:
+                        <ul>Rodents are destroying stored grain, but chemical pesticides are harmful to the environment. Build an ultrasonic frequency generator that varies its pitch to prevent pests from getting used to the sound.</ul>
+                      </li>
+                      <li>5.  Smart Irrigation Controller IC:
+                        <ul>Design a chip that automatically turns a water pump ON/OFF based on soil moisture and temperature inputs.</ul>
+                      </li>
+                      <li>6.  Crop Disease Detection Accelerator:
+                        <ul>Design a simple CNN / MAC-based hardware block that classifies crop data as healthy or diseased.</ul>
+                      </li>
+                      <li>7.  Precision Fertilizer Controller:
+                        <ul>Design a chip that decides how much fertilizer to release based on soil nutrients and moisture.</ul>
+                      </li>
+                      <li>8.  Solar-Powered Farm Sensor SoC:
+                        <ul>Design a low-power SoC controller that works in sleep mode and wakes up to collect farm data using solar power.</ul>
+                      </li>
+                      <li>9.  Grain Storage Monitoring Chip:
+                        <ul>Design a chip that monitors temperature and humidity inside grain storage and raises spoilage alerts.</ul>
+                      </li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="track-card" onclick="toggleTrack(this)">
+          <div class="track-glow"></div>
+          <div class="track-content">
+            <div class="track-animated-border"></div>
+            <div class="track-inner">
+              <div class="track-icon" style="color: #ff5722;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </div>
+              <h3>Disaster Management</h3>
+              <div class="track-click-prompt">
+                  <span>View Problem Statements</span>
+                  <div class="track-arrow-anim">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                  </div>
+              </div>
+
+              <div class="track-problems-list">
+                  <h4 style="color:#00d4ff; margin-bottom:0.5rem;">Problem Statements:</h4>
+                  <ul>
+                      <li>1.	Early Flood Warning Siren:
+                        <ul>Low-lying areas near the Kaveri River need an automated siren that triggers as water levels rise. Build a device that triggers different alarm tones based on severity.</ul>
+                      </li>
+                      <li>2.	Gas Leakage "Search" Robot:
+                        <ul>After a factory fire, it is too dangerous for humans to check for LPG/CO leaks. Build a small wired/wireless rover that could get into the site and detect the leaks.</ul>
+                      </li>
+                      <li>3.	Earthquake Vibration Logger:
+                        <ul>Structural engineers need to know if a building has suffered micro-fractures after a tremor. Build a device that signals if a vibration above a certain Magnitude is detected through the buzzers/voice alerts/lights.</ul>
+                      </li>
+                      <li>4.	Emergency Beacon with Morse "SOS":
+                        <ul>Hikers trapped in a landslide need a way to signal helicopters at night. A high-intensity LED beacon that automatically flashes the Morse code for “SOS” or any emergency codes.</ul>
+                      </li>
+                      <li>5.  Earthquake Detection Chip:
+                        <ul>Design a chip that analyzes vibration sensor data and generates early-warning signals.</ul>
+                      </li>
+                      <li>6.  Flood Level Monitoring Controller:
+                        <ul>Design a chip that monitors water levels and predicts flood risk.</ul>
+                      </li>
+                      <li>7.  Fire Detection and Alert IC:
+                        <ul>Design a chip that detects smoke and temperature rise and triggers alarms.</ul>
+                      </li>
+                      <li>8.  Landslide Warning Chip:
+                        <ul>Design a chip that monitors soil movement and rainfall data to detect landslide risk.</ul>
+                      </li>
+                      <li>9.  Rescue Drone Navigation Controller:
+                        <ul>Design a chip that processes distance and direction data to help a rescue drone avoid obstacles.</ul>
+                      </li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="schedule" class="schedule-section section-animate">
+    <div class="schedule-bg"></div>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Event <span class="neon-text">Schedule</span></h2>
+        <p class="section-subtitle">24 hours of hardware innovation and development</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="day-tabs">
+        <button class="day-tab active" data-day="0" onclick="setActiveDay(0)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>Day 1</span>
+          <span class="day-date">March 4, 2026</span>
+        </button>
+        <button class="day-tab" data-day="1" onclick="setActiveDay(1)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>Day 2</span>
+          <span class="day-date">March 5, 2026</span>
+        </button>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        <div id="day-0-events" class="day-events">
+          <div class="timeline-event left">
+            <div class="timeline-dot"></div>
+            <div class="event-card">
+              <div class="event-header">
+                <div class="event-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <span class="event-time">9:00 AM</span>
+              </div>
+              <h3>Registration & Check-in</h3>
+              <p>Welcome desk opens</p>
+            </div>
+          </div>
+          <div class="timeline-event right">
+            <div class="timeline-dot"></div>
+            <div class="event-card">
+              <div class="event-header">
+                <div class="event-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="8" r="7"></circle>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                  </svg>
+                </div>
+                <span class="event-time">10:00 AM</span>
+              </div>
+              <h3>Inauguration Ceremony</h3>
+              <p>Opening address by dignitaries</p>
+            </div>
+          </div>
+          <div class="timeline-event left">
+            <div class="timeline-dot"></div>
+            <div class="event-card">
+              <div class="event-header">
+                <div class="event-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                </div>
+                <span class="event-time">11:00 AM</span>
+              </div>
+              <h3>Hackathon Begins!</h3>
+              <p>24-hour countdown starts</p>
+            </div>
+          </div>
+        </div>
+        
+        <div id="day-1-events" class="day-events hidden">
+          <div class="timeline-event right">
+            <div class="timeline-dot"></div>
+            <div class="event-card">
+              <div class="event-header">
+                <div class="event-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                </div>
+                <span class="event-time">9:00 AM</span>
+              </div>
+              <h3>Final Push</h3>
+              <p>Last hours of development</p>
+            </div>
+          </div>
+          <div class="timeline-event left">
+            <div class="timeline-dot"></div>
+            <div class="event-card">
+              <div class="event-header">
+                <div class="event-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                  </svg>
+                </div>
+                <span class="event-time">11:00 AM</span>
+              </div>
+              <h3>Submission & Presentation</h3>
+              <p>Project submission and demo to judges</p>
+            </div>
+          </div>
+          <div class="timeline-event right">
+            <div class="timeline-dot"></div>
+            <div class="event-card">
+              <div class="event-header">
+                <div class="event-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="8" r="7"></circle>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                  </svg>
+                </div>
+                <span class="event-time">2:00 PM</span>
+              </div>
+              <h3>Valedictory Ceremony</h3>
+              <p>Results & prize distribution</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prizes" class="prizes-section section-animate">
+    <div class="prizes-bg"></div>
+    <div class="prizes-radial"></div>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Prizes & <span class="neon-text-purple">Rewards</span></h2>
+        <p class="section-subtitle">Win big and gain industry recognition</p>
+        <div class="section-divider purple"></div>
+      </div>
+      
+      <div style="display: flex; flex-direction: column; align-items: center;">
+          
+          <div class="total-pool-card">
+              <div class="prize-glow gold"></div>
+              <h3 class="total-pool-label">Total Prizepool</h3>
+              <h1 class="total-pool-amount">₹80,000</h1>
+              <p class="total-pool-sub"> </p>
+          </div>
+
+          <div class="cert-card">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <h4 style="margin: 0; color: #fff; font-family: 'Orbitron', sans-serif;">Participation Certificates for All Teams</h4>
+          </div>
+
+      </div>
+  </section>
+
+  <section id="register" class="register-section section-animate">
+    <div class="register-bg"></div>
+    <div class="register-radial"></div>
+    <div class="container">
+      <div class="register-wrapper">
+        <div class="register-glow"></div>
+        <div class="register-card">
+          <h2 class="section-title">Ready to <span class="neon-text">Innovate</span>?</h2>
+          <p class="register-subtitle">Don't miss your chance to be part of the biggest hackathon of the year. Register now and transform your ideas into reality!</p>
+          <div class="register-details">
+            <div class="register-detail">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Registration closes: February 25, 2026</span>
+            </div>
+          </div>
+          
+          <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+              <button class="btn btn-neon btn-xl" onclick="window.open('https://unstop.com/o/VRSQFXo?lb=7WGKQpqG&utm_medium=Share&utm_source=nikits58056&utm_campaign=Online_coding_challenge')">
+                Register Now
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </button>
+
+              <a href="./IDEA_Presentation_Format.pdf" download="NavaNIEti_Idea_Template.pdf" class="btn btn-outline" style="padding: 0.8rem 2rem; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download Idea PPT Template
+              </a>
+          </div>
+          
+          <p class="register-fee" style="font-size: 1.5rem; font-weight: bold; color: #fbbf24; margin-top: 1.5rem; margin-bottom: 0.5rem;">Registration fee: ₹250 per participant</p>
+          <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 0;">(Initial registration is free. Fee applies only to shortlisted teams)</p>
+          
+        </div>
+      </div>
+    </div>
+</section>
+<section id="timeline-dates" class="dates-section section-animate">
+     <div class="tech-grid-bg opacity-30"></div>
+     <div class="container">
+         <div class="section-header">
+             <h2 class="section-title">Notable <span class="neon-text">Dates</span></h2>
+             <p class="section-subtitle">Mark your calendars for these important milestones</p>
+             <div class="section-divider"></div>
+         </div>
+         
+         <div class="dates-grid">
+             <div class="date-card">
+                 <div class="date-icon-box">
+                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                     </svg>
+                 </div>
+                 <div class="date-content">
+                     <h4 class="date-heading">Jan 15th - Feb 15th 2026</h4>
+                     <p class="date-desc">Registration and submission of abstract for phase 1</p>
+                 </div>
+                 <span class="important-badge">Deadline</span>
+             </div>
+
+             <div class="date-card">
+                 <div class="date-icon-box">
+                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                     </svg>
+                 </div>
+                 <div class="date-content">
+                     <h4 class="date-heading">21st Feb 2026</h4>
+                     <p class="date-desc">Shortlisting of Phase 1 submission</p>
+                 </div>
+             </div>
+
+             <div class="date-card">
+                 <div class="date-icon-box">
+                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="12" y1="18" x2="12" y2="12"></line>
+                        <line x1="9" y1="15" x2="15" y2="15"></line>
+                     </svg>
+                 </div>
+                 <div class="date-content">
+                     <h4 class="date-heading">25th Feb 2026</h4>
+                     <p class="date-desc">Registration of Phase 2</p>
+                 </div>
+             </div>
+
+             <div class="date-card" style="border-color: #fbbf24;">
+                 <div class="date-icon-box" style="background: rgba(251, 191, 36, 0.2); box-shadow: 0 0 15px rgba(251, 191, 36, 0.4);">
+                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                     </svg>
+                 </div>
+                 <div class="date-content">
+                     <h4 class="date-heading" style="color:#fff;">4th - 5th March 2026</h4>
+                     <p class="date-desc" style="font-weight: bold; color:#fbbf24;">Final Event</p>
+                 </div>
+                 <span class="important-badge" style="background:#fbbf24; color:#000;">Main Event</span>
+             </div>
+         </div>
+     </div>
+</section>
+
+<section id="rules-regulations" class="section-animate" style="padding: 4rem 0; position: relative; background: rgba(0,0,0,0.3);">
+    <div class="container" style="text-align: center;">
+        <div class="section-header">
+            <h2 class="section-title">Rules & <span class="neon-text">Regulations</span></h2>
+            <p class="section-subtitle">Please download and review the official hackathon guidelines</p>
+            <div class="section-divider"></div>
+        </div>
+        <div style="margin-top: 2rem;">
+            <a href="./Instruction_manual.pdf" download="NavaNIEti_Rules_Manual.pdf" class="btn btn-neon btn-lg" style="display: inline-flex; align-items: center; gap: 0.8rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download Rules PDF
+            </a>
+        </div>
+    </div>
+</section>
+
+
+  <section id="faqs" class="faq-section section-animate">
+    <div class="faq-bg"></div>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Frequently Asked <span class="neon-text-purple">Questions</span></h2>
+        <p class="section-subtitle">Got questions? We've got answers. Can't find what you're looking for? Contact us!</p>
+        <div class="section-divider purple"></div>
+      </div>
+      <div class="faq-accordion">
+        
+        <div class="faq-item">
+            <button class="faq-trigger" onclick="toggleFaq(this)">
+              <span>Do I need to bring my own components?</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-content">
+          <p>
+The organizing team will provide hardware components worth up to <strong>₹4,000</strong>. Teams whose projects are shortlisted must submit a complete Bill of Materials (component list) upon selection. If your project requires additional components beyond this limit, you are welcome to bring your own. <strong>All components provided by the organizing team must be returned in proper working condition after the final evaluation.</strong>
+</p>
+ </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>Who can participate in NavaNIEti?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-content">
+            <p>NavaNIEti welcomes B.E. engineering students from all branches and all years. Please note that only hardware-based projects will be considered.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>What is the team size?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-content">
+            <p>Teams can have 3-5 members. Solo participation is not allowed.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+  <button class="faq-trigger" onclick="toggleFaq(this)">
+    <span>Is there a specific format for the Idea submission?</span>
+    <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </button>
+  <div class="faq-content">
+    <p>Yes. You must use the provided <strong>IDEA_Presentation_Format</strong> template for your submission. The PPT should be saved as a <strong>PDF</strong> before uploading. Submissions in other formats (Word, Doc, etc.) or changes to the required pointers will not be supported.</p>
+  </div>
+</div>
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>Is the hackathon online or offline?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-content">
+            <p>NavaNIEti is a fully offline hackathon. All participants must be present at the venue for the entire duration (24 hours).</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>Is there a registration fee?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-content">
+            <p>Registration is free for the initial application. Shortlisted participants will be required to pay a registration fee of ₹250 per person.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>What should I bring to the hackathon?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-content">
+            <p>All participants are required to carry a valid college ID along with a government-issued ID for identity verification.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>Will certificates be provided?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-content">
+            <p>Yes! All participants will receive participation certificates.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>What will be provided to participants?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-content">
+            <p>We will provide the required components for the problem statements, along with internet access and a dedicated workspace for all participants.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>What facilities will be available for participants?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-content">
+            <p>Food and designated resting areas (such as lounge spaces or bean bags for short breaks) will be provided.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-contact">
+        <p>Still have questions?</p>
+        <a >Please contact Student Coordinators.</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-glow"></div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand footer-brand-span">
+          <h3 class="tier-title" style="text-align: left; margin-bottom: 1rem;">Organizing Team</h3>
+          
+          <div class="team-scroll-container">
+            <div class="team-scroll-track">
+              <div class="team-member-card">
+                <img src="./images/principal.png" alt="Member 1" class="team-member-img">
+                <span class="team-member-name">Dr. K.C. Manjunath
+                </br>Principal
+                </span>
+                
+              </div>
+              <div class="team-member-card">
+                <img src="./images/vice_principal.png" alt="Member 2" class="team-member-img">
+                <span class="team-member-name">Dr. Likith kumar M V
+                    </br>Vice Principal
+                </span>
+              </div>
+              <div class="team-member-card">
+                <img src="./images/chief_IO.png" alt="Member 3" class="team-member-img">
+                <span class="team-member-name">Dr. Rohini padmanabhan
+                    </br>Chief Patron and Advisor
+                </span>
+              </div>
+              <div class="team-member-card">
+                <img src="./images/hod.png" alt="Member 4" class="team-member-img">
+                <span class="team-member-name">Dr. Rajalekshmi Kishore
+                    </br>HOD-ECE
+                </span>
+              </div>
+              <div class="team-member-card">
+                <img src="./images/faculty_coordinator.png" alt="Member 5" class="team-member-img">
+                <span class="team-member-name">Dr. Ashok K
+                 </br>Associate Professor,ECE    
+                </br>Faculty Coordinator
+                </span>
+              </div>
+              
+              
+            </div>
+          </div>
+          </div>
+        
+        <div class="footer-links-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><button onclick="scrollToSection('#home')">Home</button></li>
+            <li><button onclick="scrollToSection('#about')">About</button></li>
+            <li><button onclick="scrollToSection('#tracks')">Tracks</button></li>
+            <li><button onclick="scrollToSection('#schedule')">Schedule</button></li>
+            <li><button onclick="scrollToSection('#prizes')">Prizes</button></li>
+            <li><button onclick="scrollToSection('#faqs')">FAQs</button></li>
+          </ul>
+        </div>
+        
+        <div class="footer-contact-section">
+          <h3>Contact Us</h3>
+          
+          <h4 class="contact-subheading">Student Coordinators</h4>
+          <div class="coordinator-box">
+             <div class="coordinator-item">
+                <span style="font-weight: bold; color: #fbbf24;">Harsha B:</span> 
+                <a href="tel:+917975619415" style="color: #fff; text-decoration: none;">+91 7975619415</a>
+             </div>
+             <div class="coordinator-item">
+                <span style="font-weight: bold; color: #fbbf24;">Shrilakshmi:</span> 
+                <a href="tel:+917204703252" style="color: #fff; text-decoration: none;">+91 7204703252</a>
+             </div>
+          </div>
+
+          <ul class="footer-contact">
+              <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <a href="mailto:navanieti2026@gmail.com">navanieti2026@gmail.com</a>
+            </li>
+            
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Department of Electronics and Communication<br>The National Institute of Engineering<br>Manandavadi Road, Mysuru, Karnataka 570008</span>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2026 NavaNIEti. Department of Electronics and Communication.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/script.js" defer></script>
+  <script>
+    // Inline script for Track Expansion to avoid editing external JS file
+    function toggleTrack(element) {
+        element.classList.toggle('active');
+        // The CSS handles the display block/none of the problems list based on the 'active' class
+    }
+  </script>
+</body>
+</html>
