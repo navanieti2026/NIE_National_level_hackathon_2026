@@ -485,7 +485,31 @@
         .hero-section {
             padding-top: 180px !important; /* More space for mobile stacked header */
         }
+        /* Ensure the sponsor section is bright and clear */
+.sponsor-card.community {
+    background: #fff; /* White background makes logos pop */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    filter: none !important; /* Forces removal of any grayscale/dimming filters */
+    opacity: 1 !important;    /* Ensures full brightness */
+}
 
+.sponsor-card.community img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* This makes the image fit without stretching */
+    display: block;
+}
+
+/* Optional: Add a slight hover effect to make them look interactive */
+.sponsor-card.community:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
         /* FOOTER FIXES */
         .footer-grid {
             display: flex;
@@ -669,22 +693,16 @@
       </div>
       
       <div class="sponsor-tier">
-        <h3 class="tier-title">COMMUNITY PARTNERS</h3>
-        <div class="tier-logos community">
-          <div class="sponsor-card community">
-            <img src="./images/Massivetronics.jpeg" alt="Massivetronics">
-          </div>
-          <div class="sponsor-card community">
-            <img src="./images/Mathworks.jpg" alt="Mathworks">
-          </div>
-          <div class="sponsor-card community">
-            <img src="./images/" alt="T">
-          </div>
-          <div class="sponsor-card community">
-            <img src="./images/" alt="H">
-          </div>
-        </div>
-      </div>
+  <h3 class="tier-title">COMMUNITY PARTNERS</h3>
+  <div class="tier-logos community" style="display: flex; justify-content: center; gap: 2rem;">
+    <div class="sponsor-card community">
+      <img src="./images/Massivetronics.jpeg" alt="Massivetronics">
+    </div>
+    <div class="sponsor-card community">
+      <img src="./images/Mathworks.jpg" alt="Mathworks">
+    </div>
+    </div>
+</div>
     </div>
   </section>
 
@@ -1403,6 +1421,7 @@ The organizing team will provide hardware components worth up to <strong>₹3,00
   </script>
 </body>
 </html>
+
 
 
 
