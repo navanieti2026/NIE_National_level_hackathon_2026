@@ -486,30 +486,34 @@
             padding-top: 180px !important; /* More space for mobile stacked header */
         }
         /* Ensure the sponsor section is bright and clear */
-.sponsor-card.community {
-    background: #fff; /* White background makes logos pop */
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    filter: none !important; /* Forces removal of any grayscale/dimming filters */
-    opacity: 1 !important;    /* Ensures full brightness */
+/* laptop/Desktop Specific Fix */
+@media (min-width: 1024px) {
+    .tier-logos.community {
+        display: flex;
+        justify-content: center;
+        gap: 4rem; /* More space between the two logos */
+        padding: 2rem 0;
+    }
+
+    .sponsor-card.community {
+        width: 350px;  /* Significantly larger width for laptop */
+        height: 200px; /* Fixed height to keep them uniform */
+        background: #ffffff; /* Clean white background for the logo */
+        border-radius: 12px;
+        padding: 20px;
+        
+        /* THE Z-AXIS FIX */
+        position: relative;
+        z-index: 10;   /* Pulls it above background grids */
+        box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+        
+        /* IMAGE QUALITY FIX */
+        filter: none !important; 
+        opacity: 1 !important;
+    }
 }
 
-.sponsor-card.community img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* This makes the image fit without stretching */
-    display: block;
-}
 
-/* Optional: Add a slight hover effect to make them look interactive */
-.sponsor-card.community:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
-}
         /* FOOTER FIXES */
         .footer-grid {
             display: flex;
@@ -1421,6 +1425,7 @@ The organizing team will provide hardware components worth up to <strong>₹3,00
   </script>
 </body>
 </html>
+
 
 
 
