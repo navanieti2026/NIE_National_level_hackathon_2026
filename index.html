@@ -574,6 +574,65 @@
             justify-content: center;
         }
     }
+
+    /* Custom Sponsors Styling */
+    .sponsor-intro-text {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #fff;
+    }
+    .sponsor-intro-text h3 {
+        font-family: 'Orbitron', sans-serif;
+        color: #fbbf24;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+    .sponsor-intro-text p {
+        font-style: italic;
+        font-size: 1rem;
+        color: #ccc;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .sponsor-placeholder-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        justify-items: center;
+        margin-top: 2rem;
+    }
+    .co-sponsor-row {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .placeholder-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px dashed rgba(0, 212, 255, 0.3);
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        transition: all 0.3s ease;
+    }
+    .title-sponsor-box {
+        width: 320px;
+        height: 180px;
+    }
+    .co-sponsor-box {
+        width: 250px;
+        height: 140px;
+    }
+    .placeholder-label {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #00d4ff;
+    }
   </style>
 </head>
 <body>
@@ -730,21 +789,29 @@
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Our <span class="neon-text">Sponsors</span></h2>
-        <p class="section-subtitle">Powered by industry leaders who believe in nurturing innovation</p>
         <div class="section-divider"></div>
       </div>
       
-      <div class="sponsor-tier">
-  <h3 class="tier-title">COMMUNITY PARTNERS</h3>
-  <div class="tier-logos community" style="display: flex; justify-content: center; gap: 2rem;">
-    <div class="sponsor-card community">
-      <img src="./images/Massivetronics.jpeg" alt="Massivetronics">
-    </div>
-    <div class="sponsor-card community">
-      <img src="./images/Mathworks.jpg" alt="Mathworks">
-    </div>
-    </div>
-</div>
+      <div class="sponsor-intro-text">
+        <p>Prize money sponsored by:</p>
+        <h3>Dr. Kachigere Krishnappa</h3>
+        <p>[Smt. Meenakumari and Siddegowda Krishnappa Puttachi Scientific, Innovative and Impactful Research Award]</p>
+      </div>
+
+      <div class="sponsor-placeholder-grid">
+          <div class="placeholder-card title-sponsor-box">
+              <span class="placeholder-label">Title Sponsor</span>
+              </div>
+
+          <div class="co-sponsor-row">
+              <div class="placeholder-card co-sponsor-box">
+                  <span class="placeholder-label">Co-Sponsor 1</span>
+                  </div>
+              <div class="placeholder-card co-sponsor-box">
+                  <span class="placeholder-label">Co-Sponsor 2</span>
+                  </div>
+          </div>
+      </div>
     </div>
   </section>
 
@@ -1080,6 +1147,7 @@
           </div>
 
       </div>
+    </div>
   </section>
 
   <section id="register" class="register-section section-animate">
@@ -1463,20 +1531,3 @@ The organizing team will provide hardware components worth up to <strong>₹3,00
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
